@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module SeoMeta
   class DummyForSpec < ActiveRecord::Base
-    set_table_name 'seo_meta_dummy_for_specs'
+    self.table_name = 'seo_meta_dummy_for_specs'
 
     is_seo_meta
   end
@@ -14,11 +14,11 @@ module SeoMeta
 
     context 'responds to' do
       it 'meta_description' do
-        dummy_for_spec.respond_to?(:meta_description).should be_true
+        dummy_for_spec.should respond_to(:meta_description)
       end
 
       it 'browser_title' do
-        dummy_for_spec.respond_to?(:browser_title).should be_true
+        dummy_for_spec.should respond_to(:browser_title)
       end
     end
 
